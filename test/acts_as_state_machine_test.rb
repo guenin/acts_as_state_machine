@@ -137,6 +137,14 @@ class ActsAsStateMachineTest < Test::Unit::TestCase
     assert !c.closed_after
   end
 
+  def test_exiting_action_executed
+    c = Conversation.create
+    c.read_exiting = false
+    c.view!
+    c.junk!
+    assert c.read_exiting
+  end
+
   def test_exit_action_executed
     c = Conversation.create
     c.read_exit = false
@@ -144,13 +152,15 @@ class ActsAsStateMachineTest < Test::Unit::TestCase
     c.junk!
     assert c.read_exit
   end
-  
-  def test_entry_and_exit_not_run_on_loopback_transition
+
+  def test_entry_and_exit_and_exiting_not_run_on_loopback_transition
     c = Conversation.create
     c.view!
-    c.read_enter = false
-    c.read_exit  = false
+    c.read_exiting = false
+    c.read_enter   = false
+    c.read_exit    = false
     c.view!
+    assert !c.read_exiting
     assert !c.read_enter
     assert !c.read_exit
   end

@@ -18,6 +18,11 @@ module ScottBarron                   #:nodoc:
             @name, @opts = name, opts
           end
         
+          def exiting(record)
+            exitact = @opts[:exiting]
+            record.send(:run_transition_action, exitact) if exitact
+          end
+        
           def entering(record)
             enteract = @opts[:enter]
             record.send(:run_transition_action, enteract) if enteract
@@ -56,6 +61,7 @@ module ScottBarron                   #:nodoc:
             next_state = states[to]
             old_state = states[record.current_state]
           
+            old_state.exiting(record) unless loopback
             next_state.entering(record) unless loopback
           
             record.update_attribute(record.class.state_column, to.to_s)

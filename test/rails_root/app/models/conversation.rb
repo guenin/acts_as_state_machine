@@ -1,6 +1,6 @@
 class Conversation < ActiveRecord::Base
   attr_writer :can_close
-  attr_accessor :read_enter, :read_exit, :read_after_first, :read_after_second,
+  attr_accessor :read_enter, :read_exit, :read_exiting, :read_after_first, :read_after_second,
                 :closed_after, :needs_attention_enter, :needs_attention_after
 
   acts_as_state_machine :initial => :needs_attention, :column => 'state_machine'
@@ -8,9 +8,10 @@ class Conversation < ActiveRecord::Base
   state :needs_attention, :enter => Proc.new { |o| o.needs_attention_enter = true },
                           :after => Proc.new { |o| o.needs_attention_after = true }
                           
-  state :read, :enter => :read_enter_action,
-               :exit  => Proc.new { |o| o.read_exit  = true },
-               :after => [:read_after_first_action, :read_after_second_action]
+  state :read, :exiting => :read_exiting_action,
+               :enter   => :read_enter_action,
+               :exit    => Proc.new { |o| o.read_exit  = true },
+               :after   => [:read_after_first_action, :read_after_second_action]
 
   state :closed, :after => :closed_after_action
   state :awaiting_response
@@ -43,6 +44,10 @@ class Conversation < ActiveRecord::Base
 
   def can_close?
     @can_close
+  end
+
+  def read_exiting_action
+    self.read_exiting = true
   end
 
   def read_enter_action
