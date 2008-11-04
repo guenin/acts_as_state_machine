@@ -1,0 +1,119 @@
+# Logfile created on Tue Nov 04 00:32:55 -0800 2008  [4;36;1mSQL (0.000220)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000169)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000146)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000163)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateConversations (1)
+  [4;36;1mSQL (0.000209)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000359)[0m   [0mCREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "state_machine" varchar(255), "subject" varchar(255), "closed" boolean) [0m
+  [4;36;1mSQL (0.000162)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreatePeople (2)
+  [4;35;1mSQL (0.000257)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000221)[0m   [0;1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.000116)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+  [4;36;1mSQL (0.000221)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000165)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000148)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000122)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateConversations (1)
+  [4;36;1mSQL (0.000169)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000304)[0m   [0mCREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "state_machine" varchar(255), "subject" varchar(255), "closed" boolean) [0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreatePeople (2)
+  [4;35;1mSQL (0.000188)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000167)[0m   [0;1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.000143)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+  [4;36;1mSQL (0.000269)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000449)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000361)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.000228)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000146)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateConversations (1)
+  [4;36;1mSQL (0.000207)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000357)[0m   [0mCREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "state_machine" varchar(255), "subject" varchar(255), "closed" boolean) [0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreatePeople (2)
+  [4;35;1mSQL (0.000240)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000264)[0m   [0;1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.000135)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+  [4;36;1mConversation Create (0.000103)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000085)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 3[0m
+  [4;36;1mConversation Update (0.000074)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'closed' WHERE "id" = 3[0m
+  [4;35;1mConversation Create (0.000077)[0m   [0mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;36;1mConversation Update (0.000103)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 4[0m
+  [4;35;1mConversation Update (0.000086)[0m   [0mUPDATE "conversations" SET "state_machine" = 'closed' WHERE "id" = 4[0m
+  [4;36;1mConversation Create (0.000095)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000089)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 5[0m
+  [4;36;1mConversation Update (0.000074)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'awaiting_response' WHERE "id" = 5[0m
+  [4;35;1mConversation Update (0.000073)[0m   [0mUPDATE "conversations" SET "state_machine" = 'closed' WHERE "id" = 5[0m
+  [4;36;1mConversation Create (0.000080)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000085)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 6[0m
+  [4;36;1mConversation Update (0.000096)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'awaiting_response' WHERE "id" = 6[0m
+  [4;35;1mConversation Update (0.000073)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 6[0m
+  [4;36;1mConversation Create (0.000080)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000081)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 7[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: near "read": syntax error: SELECT count(state_machine = ?read) AS count_state_machine_read FROM "conversations" [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: near "readFoo": syntax error: SELECT count(state_machine = ? AND subject = ?readFoo) AS count_state_machine_and_subject_read_foo FROM "conversations" [0m
+  [4;36;1mConversation Create (0.000079)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000113)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 8[0m
+  [4;36;1mConversation Create (0.000079)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Create (0.000099)[0m   [0mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;36;1mConversation Update (0.000084)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 10[0m
+  [4;35;1mConversation Create (0.000078)[0m   [0mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;36;1mConversation Create (0.000078)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000081)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 12[0m
+  [4;36;1mConversation Update (0.000079)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'junk' WHERE "id" = 12[0m
+  [4;35;1mConversation Load (0.000251)[0m   [0mSELECT * FROM "conversations" WHERE (conversations.state_machine = 'read') [0m
+  [4;36;1mConversation Load (0.000179)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."id" = 2) [0m
+  [4;35;1mConversation Load (0.000183)[0m   [0mSELECT * FROM "conversations" WHERE (subject = 'Foo') AND (conversations.state_machine = 'read') [0m
+  [4;36;1mConversation Load (0.000183)[0m   [0;1mSELECT * FROM "conversations" WHERE (conversations.state_machine = 'read') LIMIT 1[0m
+  [4;35;1mConversation Load (0.000186)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 1) [0m
+  [4;36;1mConversation Load (0.000179)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."id" = 2) [0m
+  [4;35;1mConversation Load (0.000188)[0m   [0mSELECT * FROM "conversations" WHERE (subject = 'Foo') AND (conversations.state_machine = 'read') LIMIT 1[0m
+  [4;36;1mConversation Create (0.000089)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Update (0.000086)[0m   [0mUPDATE "conversations" SET "state_machine" = 'read' WHERE "id" = 13[0m
+  [4;36;1mConversation Update (0.000074)[0m   [0;1mUPDATE "conversations" SET "state_machine" = 'junk' WHERE "id" = 13[0m
+  [4;35;1mConversation Create (0.000115)[0m   [0mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;36;1mConversation Create (0.000085)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;35;1mConversation Create (0.000081)[0m   [0mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
+  [4;36;1mConversation Create (0.000101)[0m   [0;1mINSERT INTO "conversations" ("subject", "closed", "state_machine") VALUES(NULL, NULL, 'needs_attention')[0m
