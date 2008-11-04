@@ -1,4 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
+require File.dirname(__FILE__) + '/fixtures/conversation'
+require File.dirname(__FILE__) + '/fixtures/person'
 
 include ScottBarron::Acts::StateMachine
 
